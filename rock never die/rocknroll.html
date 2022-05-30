@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://kit.fontawesome.com/d08da597d2.js" crossorigin="anonymous"></script>
+  
+  <style>
+    * { margin: 0; padding: 0; }
+    #root {
+      width: 100vw; height: 100vh;
+      background-color: #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    #text {
+      color: #ccc;
+      margin-bottom: 50px;
+    }
+    
+    #btnRock {
+      width: 100px; height: 50px;
+      background-color: rgb(161, 43, 43);
+      border: 2px solid #000;
+      border-radius: 20px;
+      color: #ccc;
+      box-shadow: 5px 3px 0 black;
+    }
+
+    .sign-box {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .sign {
+      width: 50px; height: 50px;
+      margin: 0 5px 0 5px;
+    }
+
+    .text-ccc {
+      color: #ccc;
+      font-weight: normal;
+      font-size: 21px;
+      margin-bottom: 5px;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <header class="sign-box">
+      <div class="sign"><img src="./hand-sign-01.svg" alt=""></div>
+      <div class="sign"><img src="./hand-sign-01.svg" alt=""></div>
+      <div class="sign"><img src="./hand-sign-02.svg" alt=""></div>
+    </header>
+    <!-- <p class="text-ccc">박수</p> -->
+    <div id="beat-box" class="sign-box">
+      <div class="sign"></div>
+      <div class="sign"></div>
+      <div class="sign"></div>
+    </div>
+    <h1 id="text">WE WILL</h1>
+    <button id="btnRock">RockNRoll</button>
+  </div>
+
+  <script>
+    const root = document.getElementById('root');
+    const btnRock = document.getElementById('btnRock');
+    const text = document.getElementById('text');
+    // const clap = document.querySelector('p');
+    const beatBox = document.getElementById('beat-box');
+    console.dir(beatBox);
+
+    let beat = ['쿵', '짝'];
+    let handSign = [
+      `url('./hand-sign-on-01.svg')`,
+      `url('./hand-sign-on-02.svg')`
+    ]
+    
+    
+    btnRock.addEventListener('click', function(){
+      
+      let arrBeat = [];
+      // arrBeat를 지역변수로 넣으니 해결됨
+
+      for(let i = 0; i < 3; i++){
+        let drumBeat = Math.floor(Math.random() * beat.length);
+        let beatValue = beat[drumBeat];
+        arrBeat.push(beatValue);
+        console.log(beatValue);
+
+        if(drumBeat === 0){
+          beatBox.children[i].style.backgroundImage = handSign[0];
+        }else{
+          beatBox.children[i].style.backgroundImage = handSign[1];
+        }
+      };
+
+      let drumBeat = arrBeat.join('');
+      
+      // clap.textContent = null;
+      // clap.textContent = drumBeat;
+      // textContent가 비워지지 않음
+      // console.log(arrBeat);
+      // 배열이 비워지지 않고 계속 추가되기때문에 textContent가 비워지지 않는 것 처럼 보였던 것.
+      // --> 배열을 다시 비워줘야된다.
+      
+      if(drumBeat === '쿵쿵짝') {
+        // console.log('we will rock you');
+        text.textContent = 'WE WILL ROCK YOU';
+      }else{
+        // console.log('rock never die');
+        text.textContent = 'ROCK NEVER DIE';
+      }
+
+    });
+
+  </script>
+</body>
+</html>
