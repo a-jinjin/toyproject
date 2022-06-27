@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #EDE7E4;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(#260303, #483D3C);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#root > div:nth-child(1) {
+  width: 80vw;
+  height: 40vh;
+  border: 1px solid;
+  margin-top: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#root > div:nth-child(1) #googoo {
+  width: 250px;
+  height: 250px;
+  -ms-interpolation-mode: nearest-neighbor;
+      image-rendering: -moz-crisp-edges;
+      image-rendering: pixelated;
+}
+#root > div:nth-child(2) {
+  margin-top: 20vh;
+}
+#root > div:nth-child(2) > p {
+  font-family: "Nanum Gothic", sans-serif;
+  text-align: center;
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 28px;
+}
+#root > div:nth-child(2) > p > span {
+  font-weight: normal;
+  font-size: 14px;
+}
+#root > footer {
+  width: initial;
+  height: 9vh;
+  margin-top: 5vh;
+  display: flex;
+}
+#root > footer > div {
+  width: 6vh;
+  height: 12vh;
+  margin: 0 6vw 0 6vw;
+  text-align: center;
+  font-size: 14px;
+  line-height: 24px;
+  font-family: "Nanum Gothic", sans-serif;
+}
+#root > footer > div > .btn-off {
+  width: 6vh;
+  height: 6vh;
+  border-radius: 3vh;
+  border: 1px solid #EDE7E4;
+}
+#root > footer > div > #booboo {
+  background-image: url(../img/icon-off-01.svg);
+}
+#root > footer > div > #booboo:hover {
+  background-image: url(../img/icon-on-01.svg);
+}
+#root > footer > div > #hawk {
+  background-image: url(../img/icon-off-02.svg);
+}
+#root > footer > div > #hawk:hover {
+  background-image: url(../img/icon-on-02.svg);
+}
+#root > footer > div > #mirror {
+  background-image: url(../img/icon-off-03.svg);
+}
+#root > footer > div > #mirror:hover {
+  background-image: url(../img/icon-on-03.svg);
+}/*# sourceMappingURL=01-main.css.map */

@@ -1,0 +1,90 @@
+@import "./font.scss";
+
+// 색상
+$color-gray-light: #EDE7E4;
+$color-gray: #9B8C8A;
+
+// 폰트
+$font-nanum: 'Nanum Gothic', sans-serif;
+
+
+* { margin: 0; padding: 0; box-sizing: border-box; color: $color-gray-light; }
+
+#root {
+  width: 100vw; height: 100vh;
+  background: linear-gradient(#260303, #483D3C);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+
+  & > div:nth-child(1) {
+    width: 80vw; height: 40vh;
+    border: 1px solid;
+    margin-top: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    #googoo {
+      width: 250px; height: 250px;
+      image-rendering: pixelated;
+    }
+  }
+  
+  & > div:nth-child(2) {
+    margin-top: 20vh;
+
+    & > p {
+      font-family: $font-nanum;
+      text-align: center;
+      font-size: 21px;
+      font-weight: bold;
+      line-height: 28px;
+
+      & > span {
+        font-weight: normal;
+        font-size: 14px;
+      }
+    }
+  }
+
+  & > footer {
+    width: initial; height: 9vh;
+    margin-top: 5vh;
+    display: flex;
+
+    & > div {
+      width: 6vh; height: 12vh;
+      margin: 0 6vw 0 6vw;
+      text-align: center;
+      font-size: 14px;
+      line-height: 24px;
+      font-family: $font-nanum;
+
+      & > .btn-off {
+        width: 6vh; height: 6vh;
+        border-radius: 3vh;
+        border: 1px solid $color-gray-light;
+      }
+      & > #booboo {
+        background-image: url(../img/icon-off-01.svg);
+      }
+      & > #booboo:hover {
+        background-image: url(../img/icon-on-01.svg);
+      }
+      & > #hawk {
+        background-image: url(../img/icon-off-02.svg);
+      }
+      & > #hawk:hover {
+        background-image: url(../img/icon-on-02.svg);
+      }
+      & > #mirror {
+        background-image: url(../img/icon-off-03.svg);
+      }
+      & > #mirror:hover {
+        background-image: url(../img/icon-on-03.svg);
+      }
+    }
+  }
+}
