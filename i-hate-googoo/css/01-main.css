@@ -17,7 +17,6 @@
 #root > div:nth-child(1) {
   width: 80vw;
   height: 40vh;
-  border: 1px solid;
   margin-top: 10vh;
   display: flex;
   justify-content: center;
@@ -47,7 +46,8 @@
 #root > footer {
   width: initial;
   height: 9vh;
-  margin-top: 5vh;
+  position: fixed;
+  bottom: 10vh;
   display: flex;
 }
 #root > footer > div {
@@ -82,4 +82,36 @@
 }
 #root > footer > div > #mirror:hover {
   background-image: url(../img/icon-on-03.svg);
+}
+
+.blur-box {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 2;
+  background-color: rgb(237, 231, 228);
+  -webkit-animation: twinkle 0.5s linear 1;
+          animation: twinkle 0.5s linear 1;
+}
+@-webkit-keyframes twinkle {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes twinkle {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
 }/*# sourceMappingURL=01-main.css.map */

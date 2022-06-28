@@ -20,7 +20,6 @@ $font-nanum: 'Nanum Gothic', sans-serif;
 
   & > div:nth-child(1) {
     width: 80vw; height: 40vh;
-    border: 1px solid;
     margin-top: 10vh;
     display: flex;
     justify-content: center;
@@ -51,7 +50,8 @@ $font-nanum: 'Nanum Gothic', sans-serif;
 
   & > footer {
     width: initial; height: 9vh;
-    margin-top: 5vh;
+    position: fixed;
+    bottom: 10vh;
     display: flex;
 
     & > div {
@@ -88,3 +88,36 @@ $font-nanum: 'Nanum Gothic', sans-serif;
     }
   }
 }
+
+@mixin animate($animation, $duration, $method, $times) {
+  animation: $animation $duration $method $times;
+}
+
+@mixin keyframes($name) {
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+
+.blur-box {
+  width: 100vw; height: 100vh;
+  position: absolute;
+  z-index: 2;
+  background-color: rgb(237, 231, 228);
+
+  @include keyframes(twinkle) {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @include animate(twinkle, 0.5s, linear, 1);
+}
+
+

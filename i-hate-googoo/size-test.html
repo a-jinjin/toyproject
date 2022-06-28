@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin:0; padding:0;}
+    #root {
+      width: 100vw; height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script>
+    const root = document.getElementById('root');
+    
+    // to do
+    // 1. 버튼을 누르면 크기가 작아진다.
+    
+    // 사이즈를 변수로
+    let size = 500;
+
+    // 크기가 작아질 상자 준비
+    const box = document.createElement('div');
+    box.style.width = `${size}px`;
+    box.style.height = `${size}px`;
+    box.style.backgroundColor = `#333`;
+    root.appendChild(box);
+
+    // 버튼 준비
+    const btnSize = document.createElement('button');
+    btnSize.textContent = 'click';
+    btnSize.style.width = `150px`;
+    btnSize.style.height = `50px`;
+    btnSize.style.position = 'absolute';
+    btnSize.style.bottom = `100px`;
+    root.appendChild(btnSize);
+
+    // 버튼에 클릭이벤트 넣기
+    // btnSize.addEventListener('click', () => {
+    //   // 클릭할때마다 box의 크기가 줄어들도록
+    //   size = size-20;
+    //   box.style.width = `${size}px`;
+    //   box.style.height = `${size}px`;
+
+    //   // box의 크기가 200이 되었을때 사라지게
+    //   if(size === 200) {
+    //     const fadeout = setInterval( function() {
+    //       size = size-5;
+    //       box.style.width = `${size}px`;
+    //       box.style.height = `${size}px`;
+
+    //       if(size === 0) {
+    //         clearInterval(fadeout);
+    //         alert('원상복구');
+    //         size = 500;
+    //         box.style.width = `${size}px`;
+    //         box.style.height = `${size}px`;
+    //       }
+    //     }, 10);
+    //   }
+    // });
+
+    // 랜덤으로 숫자를 생성해주는 함수
+    function randomNumber(min, max) {
+     return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+
+    // 클릭할때마다 랜덤으로 크기가 줄어드는 상자
+    btnSize.addEventListener('click', () => {
+
+      // 1~3까지 랜덤으로 출력되는 숫자 변수
+      let randomSwitch = randomNumber(1, 3);
+
+      // console.log(randomSwitch);
+      
+      if (randomSwitch === 1) {
+        size = size-10;
+        box.style.width = `${size}px`;
+        box.style.height = `${size}px`;
+        console.log('박스 크기가 5px 줄었습니다.');
+      
+      } else if (randomSwitch === 2) {
+        size = size-10;
+        box.style.width = `${size}px`;
+        box.style.height = `${size}px`;
+        console.log('박스 크기가 10px 줄었습니다.');
+      
+      } else if (randomSwitch === 3) {
+        size = size-20;
+        box.style.width = `${size}px`;
+        box.style.height = `${size}px`;
+        console.log('박스 크기가 20px 줄었습니다.');
+      } 
+
+      // box의 크기가 200보다 작을 경우 사라지도록
+      if(size <= 200) {
+        const fadeout = setInterval( function() {
+          size = size-5;
+          box.style.width = `${size}px`;
+          box.style.height = `${size}px`;
+
+          if(size === 0) {
+            clearInterval(fadeout);
+            alert('원상복구');
+            size = 500;
+            box.style.width = `${size}px`;
+            box.style.height = `${size}px`;
+          }
+        }, 10);
+      }
+    });
+
+  </script>
+</body>
+</html>
