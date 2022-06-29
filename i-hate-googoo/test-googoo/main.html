@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>굿바이 구구</title>
+  <link rel="stylesheet" href="./CSS/style.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  
+
+  <script>
+    const root = document.getElementById('root');
+    const textIntro = [
+      '이 온도, 습도, 조명...<br>모든 것이 완벽한 평화로운 아침입니다.'
+    ]
+
+    const winBox = `
+      <p class="text-alert">
+        이 페이지는 <span class="text-bold">광과민성 발작</span> 등 빛에 예민한 분들에게 부적절할 수 있는 장면효과를 포함합니다. 주의 바랍니다.
+      </p>
+      <div id="winBox" class="window-box">
+        <div class="text-box">
+          <p class="text-naration">${textIntro[0]}</p>
+          <div class="btn-next"></div>
+        </div>
+      </div>
+      <div id="winFrame" class="window-frames"></div>
+      <div id="cloud" class="cloud"></div>
+    `;
+    
+    
+
+    root.innerHTML = winBox;
+
+
+  </script>
+</body>
+</html>
