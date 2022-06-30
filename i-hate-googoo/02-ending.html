@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>모이지마요 비둘기숲</title>
+  <link rel="stylesheet" href="./css/02-ending.css">
+</head>
+<body>
+  <div id="root">
+    <div id="cloud"></div>
+    <div id="win-frame"></div>
+    <div id="win-arch"></div>
+    <!-- 내용 들어갈 박스 -->
+    <div id="text-naration-box">
+      <p id="text-naration">비둘기를 성공적으로 퇴치했습니다!<br>당신의 평화로운 아침을 지켜냈습니다.</p>
+      <div id="button-next" class="button-next"></div>
+    </div>
+  </div>
+
+  <script>
+    const btnNext = document.getElementById('button-next');
+    const textNarationBox = document.getElementById('text-naration-box');
+
+    btnNext.addEventListener('click', ()=> {
+      btnNext.style.display = 'none';
+      textNarationBox.style.display = 'none';
+
+      // 게임오버, 다시시도 버튼
+      const over = document.createElement('div');
+        over.style.width = 70+'vw';
+        over.style.height = 20+'vh';
+        over.style.backgroundImage = `url(./img/ending-good.svg)`;
+        over.style.backgroundRepeat = 'no-repeat';
+        over.style.position = 'fixed';
+        over.style.zIndex = 4;
+        over.style.left = 15+'vw';
+        over.style.top = 24+'vh';
+        root.appendChild(over);
+
+        const retry = document.createElement('div');
+        retry.style.width = 6+'vh';
+        retry.style.height = 6+'vh';
+        retry.style.backgroundImage = `url(./img/button-retry.svg)`;
+        retry.style.backgroundRepeat = 'no-repeat';
+        retry.style.position = 'fixed';
+        retry.style.zIndex = 4;
+        retry.style.right = 10+'vw';
+        retry.style.bottom = 8+'vh';
+        root.appendChild(retry);
+        retry.addEventListener('click', ()=>{
+          location.href = `./00-intro.html`;
+        })
+
+    });
+
+  </script>
+</body>
+</html>

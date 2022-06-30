@@ -1,0 +1,135 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+// colors
+$color-point: #879AB4;
+$color-bg-light: #3B9BA1, #D1EAE5;
+$color-bg-dark: #465C5C, #9BA2AA;
+$color-black: #2B3A3A;
+$color-white: #EEF5F5;
+
+#root {
+  width: 100vw; height: 100vh;
+  background: linear-gradient($color-bg-light);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+
+  & > #cloud {
+    width: 100vw; height: 100vh;
+    background-image: url(../img/cloud.svg);
+    background-repeat:repeat-x;
+    background-size: 160%, auto;
+    background-position: center center;
+    position: absolute;
+    z-index: 1;
+  }
+
+  & > #win-frame {
+    width: 100vw; height: 100vh;
+    background-image: url(../img/window-frames.svg);
+    background-repeat: repeat-x;
+    background-position: bottom center;
+    position: absolute;
+    z-index: 2;
+  }
+
+  & > #win-arch {
+    width: 100vw; height: 100vh;
+    background-image: url(../img/window-box.svg);
+    background-repeat: repeat-x;
+    background-position: top center;
+    background-size: auto 100%;
+    position: absolute;
+    z-index: 3;
+  }
+
+  // 텍스트 들어갈 공간
+  & > div:nth-child(4) {
+    width: 90vw; height: 40vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: fixed;
+    bottom: 7vh;
+    z-index: 4;
+
+    // 선택지 박스
+    & > div:nth-child(1) {
+      width: 40vw; height: initial;
+      background-color: $color-white;
+      border: 2px solid $color-point;
+      border-radius: 1vh;
+      padding: 2vh 5vw 1vh 5vw;
+
+      & > div {
+        width: 100%; height: initial;
+        margin-bottom: 1vh;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+
+        & > div {
+          display: none;
+        }
+        
+        & > p {
+          width: 22vw; height: initial;
+          margin-left: 2vw;
+          position: relative;
+          right: 0;
+          color: $color-black;
+          font-size: 18px;
+          line-height: 28px;
+        }
+      }
+
+      & > div:hover {
+        font-weight: bold;
+
+        & > div {
+          display: block;
+        }
+      }
+    }
+
+    // 내용 박스
+    & > div:nth-child(2) {
+      width: 90vw; height: 20vh;
+      margin-top: 1vh;
+      background-color: $color-white;
+      border: 2px solid $color-point;
+      border-radius: 1vh;
+      padding: 2vh 5vw 2vh 5vw;
+
+      & > p {
+        width: 100%; height: initial;
+        color: $color-black;
+        text-align: justify;
+        line-height: 28px;
+      }
+    }
+  }
+
+}
+
+
+.button-toggle {
+  width: 2vh; height: 2vh;
+  background-image: url(../img/button-toggle.svg);
+  background-repeat: no-repeat;
+}
+
+.button-next {
+  width: 4vh; height: 4vh;
+  background-image: url(../img/button-next.svg);
+  position: absolute;
+  bottom: 2vh;
+  right: 5vw;
+}
+
+.view-off {
+  display: none;
+}
