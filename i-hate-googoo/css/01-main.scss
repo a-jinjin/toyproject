@@ -16,18 +16,24 @@ $font-nanum: 'Nanum Gothic', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
   
 
   & > div:nth-child(1) {
-    width: 80vw; height: 40vh;
-    margin-top: 10vh;
+    width: 30vw; height: 20vh;
+    margin-top: 30vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    overflow:visible;
 
     #googoo {
       width: 250px; height: 250px;
-      image-rendering: pixelated;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
     }
   }
   

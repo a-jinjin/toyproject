@@ -40,13 +40,14 @@
     const circle = document.createElement('div');
     circle.classList.add('circle');
     root.appendChild(circle);
+    let circleSize = 100;
 
     root.addEventListener('mousemove', (e) => {
       let left = e.clientX;
       let top = e.clientY;
       text.textContent = `마우스 X좌표 : ${left} / 마우스 Y좌표 : ${top}`;
-      circle.style.left = left+'px';
-      circle.style.top = top+'px';
+      circle.style.left = left-(circleSize-circleSize/2)+'px';
+      circle.style.top = top-(circleSize-circleSize/2)+'px';
     })
 
   </script>

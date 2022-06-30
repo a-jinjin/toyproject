@@ -40,10 +40,26 @@
     const btnMirror = document.getElementById('mirror');
     const textAlert = document.getElementById('text-alert');
     
+    // 눈알 움직이게 (마우스에 반응)
+    let displayWidth = root.offsetWidth;
+    let displayHeight = root.offsetHeight;
+
+    root.addEventListener('mousemove', (e) => {
+      let left = e.clientX;
+      let top = e.clientY;
+      
+      let leftPercent = left/displayWidth*100;
+      let topPercent = top/displayHeight*100;
+
+      googoo.style.left = `${leftPercent}%`;
+      googoo.style.top = `${topPercent}%`;
+    });
+
+
     // 랜덤으로 숫자를 생성해주는 함수
     function randomNumber(min, max) {
      return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+    };
 
     let size = 250;
     
@@ -83,7 +99,7 @@
         textAlert.textContent = '울음소리가 희미해집니다...';
         btnBooboo.disabled = true;
 
-        let birdFly = new Audio('./sound/fly.mp3');
+        let birdFly = new Audio('./sound/fly.wav');
         birdFly.play();
         
         // 비둘기소리 작아지게
@@ -95,7 +111,7 @@
           if(vol <= 0) {
             birdSound.autoplay = false;
           }
-        }, 20);
+        }, 5);
 
         // 비둘기 눈알 사라지게
         const fadeout = setInterval( function() {
@@ -144,7 +160,7 @@
         textAlert.textContent = '울음소리가 희미해집니다...';
         btnHawk.disabled = true;
 
-        let birdFly = new Audio('./sound/fly.mp3');
+        let birdFly = new Audio('./sound/fly.wav');
         birdFly.play();
         
         // 비둘기소리 작아지게
@@ -156,7 +172,7 @@
           if(vol <= 0) {
             birdSound.autoplay = false;
           }
-        }, 20);
+        }, 5);
 
         // 비둘기 눈알 사라지게
         const fadeout = setInterval( function() {
@@ -218,7 +234,7 @@
         textAlert.textContent = '울음소리가 희미해집니다...';
         btnMirror.disabled = true;
 
-        let birdFly = new Audio('./sound/fly.mp3');
+        let birdFly = new Audio('./sound/fly.wav');
         birdFly.play();
 
         // 비둘기소리 작아지게
@@ -230,7 +246,7 @@
           if(vol <= 0) {
             birdSound.autoplay = false;
           }
-        }, 20);
+        }, 5);
 
         // 비둘기 눈알 사라지게
         const fadeout = setInterval( function() {
