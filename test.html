@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test-layout</title>
+  <style>
+    * {margin: 0; padding: 0;}
+    #root-main {
+      width: 100vw; height: 100vh;
+      background-color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div id="root-main">
+  </div>
+
+  <script>
+    // root-main 식별
+    const rootMain = document.getElementById('root-main');
+    
+    const eyeBox = document.createElement('div');
+    eyeBox.style.width = 30+'vw';
+    eyeBox.style.height = 20+'vh';
+    eyeBox.style.border = '1px solid black';
+    eyeBox.style.marginTop = 20+'vh';
+    eyeBox.style.display = 'flex';
+    eyeBox.style.justifyContent = 'center';
+    eyeBox.style.alignItems = 'center';
+    eyeBox.style.position = 'relative';
+    rootMain.appendChild(eyeBox);
+
+    const eye = document.createElement('div');
+    eye.style.width = 250+'px';
+    eye.style.height = 250+'px';
+    eye.style.transform = 'translate(-50%, -50%)';
+    eye.style.position = 'absolute';
+    eye.style.top = '50%';
+    eye.style.left = '50%';
+    eyeBox.appendChild(eye);
+
+    const googooEye = document.createElement('img');
+    googooEye.src = './i-hate-googoo/img/watching-you.svg';
+    eye.appendChild(googooEye);
+
+    // 눈알 움직이게 (마우스에 반응)
+    let displayWidth = rootMain.offsetWidth;
+    let displayHeight = rootMain.offsetHeight;
+
+    rootMain.addEventListener('mousemove', (e) => {
+      let left = e.clientX;
+      let top = e.clientY;
+      
+      let leftPercent = left/displayWidth*100;
+      let topPercent = top/displayHeight*100;
+
+      eye.style.left = `${leftPercent}%`;
+      eye.style.top = `${topPercent}%`;
+    });
+
+
+    // 텍스트 박스
+    const textArea = document.createElement('div');
+    textArea.style.width = 80+'vw';
+    textArea.style.height = 34+'vh';
+    textArea.style.position = 'fixed';
+    textArea.style.bottom = 8+'vh';
+    rootMain.appendChild(textArea);
+
+    // 선택지 창
+    const checkBox = document.createElement('div');
+    checkBox.style.width = 40+'vw';
+    checkBox.style.height = 13+'vh';
+    checkBox.style.border = '2px solid #ccc';
+    checkBox.style.borderRadius = '1vh';
+    checkBox.style.backgroundColor = '#888';
+    checkBox.style.position = 'absolute';
+    checkBox.style.top = 0;
+    checkBox.style.right = 0;
+    textArea.appendChild(checkBox);
+
+    // 스크립트 창
+    const textBox = document.createElement('div');
+    textBox.style.width = 70+'vw';
+    textBox.style.height = 15+'vh';
+    textBox.style.padding = '2vh 5vw 2vh 5vw';
+    textBox.style.border = '2px solid #ccc';
+    textBox.style.borderRadius = '1vh';
+    textBox.style.backgroundColor = '#888';
+    textBox.style.position = 'absolute';
+    textBox.style.right = 0;
+    textBox.style.bottom = 0;
+    textBox.textContent = '동해물과백두산이마르고닳해물과백두산이마르고닳도록'
+    textArea.appendChild(textBox);
+
+  </script>
+</body>
+</html>
