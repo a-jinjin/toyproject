@@ -9,26 +9,31 @@
       position: relative;
       overflow: hidden;
     }
+    
     #root > div:nth-child(1) {
-      width: 165px; height: 40px;
-      background-color: #2B3A3A;
-      border-radius: 0 0 25px 25px;
-      position: absolute;
-      top: 2vh;
-      z-index: 2;
-    }
-    #root > div:nth-child(2) {
-      width: 458px; height: 956px;
+      width: 428px; height: 926px;
       border-radius: 50px;
       position: absolute;
-      background-color: #2B3A3A;
-      border: 3px solid white;
+      background-color: #fff;
+      border: 5px solid #3B9BA1;
       z-index: 0;
     }
 
     #root > article {
-      width: 428px; height: 926px;
+      width: 398px; height: 896px;
+      position: absolute;
+      display: flex;
+      justify-content: center;
       z-index: 1;
+    }
+
+    #root > article > div:nth-child(1) {
+      width: 165px; height: 40px;
+      background-color: #fff;
+      border-radius: 0 0 25px 25px;
+      position: absolute;
+      top: 0;
+      z-index: 2;
     }
 
     #googoo {
